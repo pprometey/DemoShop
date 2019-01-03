@@ -1,0 +1,121 @@
+﻿$afwidth: 300px;
+
+.account {
+    .footer {
+        left: 0px;
+        padding: 5px 30px;
+    }
+
+    .card-account {
+        border: 0px;
+        margin-top: 30px;
+        background-color: $bg-body;
+    }
+
+    .wrapper-account {
+        max-width: $afwidth;
+    }
+}
+@media (max-width: 767px) {
+
+    .wrapper-page {
+        width: $width;
+    }
+}
+
+.g-recaptcha {
+    display: inline-block;
+}
+
+.font-22 {
+    font-size: 22px;
+}
+.font-24 {
+    font-size: 24px;
+}
+.font-26 {
+    font-size: 26px;
+}
+.font-28 {
+    font-size: 28px;
+}
+
+$sidemenu: 270px;
+.side-menu {
+    width: $sidemenu;
+}
+.content-page {
+    margin-left: $sidemenu;
+}
+
+.navbar-custom {
+    margin-bottom: 80px;
+}
+.footer {
+    padding: 5px 30px;
+}
+
+.button-details {
+    /*padding-left: 1.25rem;
+    padding-bottom: 1.25rem;*/
+}
+//dataTable
+.table > tbody > tr > td, .table > tfoot > tr > td, .table > thead > tr > td {
+    padding: 0.4rem 0.75rem;
+}
+
+.m-w-c-125 {
+    min-width: 125px;
+}
+
+.m-w-c-210 {
+    min-width: 210px;
+}
+
+.m-w-c-25 {
+    min-width: 25px;
+}
+
+.b-t {
+    margin-right: 5px;
+    margin-bottom: 1px;
+}
+
+.table.dataTable tr.trgroup td {
+    background-color: rgba(59, 171, 186, 0.1);
+}
+
+//.hummingbird-treeview
+.hummingbird-treeview,
+.hummingbird-treeview * {
+    list-style: none;
+    /*font-size: 20px;*/
+    line-height: 24px;
+    margin-left: -10px;
+}
+
+.hummingbird-treeview label {
+    font-weight: normal;
+    margin-left: 20px;
+}
+
+
+.hummingbird-treeview input[type=checkbox] {
+    width: 16px;
+    height: 16px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.hummingbird-treeview ul:not(.hummingbird-base) {
+    display: none;
+}
+
+.hummingbird-treeview .fa {
+    font-style: normal;
+    cursor: pointer;
+}
+
+.t-ls-10 {
+    letter-spacing: 15px;
+}

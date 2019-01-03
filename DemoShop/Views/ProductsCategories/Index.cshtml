@@ -1,0 +1,41 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Список категорий товаров";
+}
+@section BeforeCss {
+    @{ await Html.RenderPartialAsync("_ScriptSyncfusionCss"); }
+}
+
+@Html.Partial("_StatusMessage", Model.StatusMessage)
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <a asp-action="Create" class="btn btn-success"><i class="fa fa-plus fa-fw"></i> Добавить</a>
+            </div>
+            <div class="card-body card-block">
+                <ej-grid id="ProductsCategoriesGrid" allow-selection="true" allow-sorting="true" allow-paging="true" allow-filtering="true" is-responsive="true"
+                         allow-reordering="true" enable-row-hover="true" locale="ru-RU">
+                    <e-datamanager url="GetData" adaptor="UrlAdaptor"></e-datamanager>
+                    <e-toolbar-settings show-toolbar="true" toolbar-items=@(new List<string>() { "printGrid" }) />
+                    <e-page-settings enable-query-string="true" page-size="25" page-size-list=@(new List<int>() { 15,25,50,100 }) />
+                    <e-columns>
+                        <e-column field="ID" is-primary-key="true" header-text="Код" visible="false"></e-column>
+                        <e-column field="Name" header-text="Наименование категории"></e-column>
+                        <e-column header-text="Действия" allow-resizing="false" width="150" template="#actionColumn"></e-column>
+                    </e-columns>
+                </ej-grid>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ScriptSyncfusionJs"); }
+
+    <script id="actionColumn" type="text/x-jsrender">
+        <a class='btn btn-sm btn-info b-t' href='/ProductsCategories/Details?id={{:ID}}' title='Подробнее'><i class='fa fa-eye fa-fw'></i> </a>
+        <a class='btn btn-sm btn-primary b-t' href='/ProductsCategories/Edit?id={{:ID}}' title='Редактировать'><i class='fa fa-edit fa-fw'></i> </a>
+        <a class='btn btn-sm btn-danger b-t' href='/ProductsCategories/Delete?id={{:ID}}' title='Удалить'><i class='fa fa-remove fa-fw'></i> </a>
+    </script>
+}

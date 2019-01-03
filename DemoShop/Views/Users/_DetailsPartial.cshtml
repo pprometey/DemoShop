@@ -1,0 +1,75 @@
+﻿@model EditViewModel
+<div class="card-body card-block">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FullName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FullName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailConfirmed)
+        </dt>
+        <dd>
+            @Html.CheckBoxFor(model => model.EmailConfirmed, new { @disabled = "disabled" })
+            <br />
+            @{if (!Model.EmailConfirmed)
+                {
+                    <form id="SendEmail" asp-action="SendEmailConfirmationAsync" asp-route-id="@Model.Id" method="post" hidden></form>
+                        <a href="#" onclick="document.getElementById('SendEmail').submit(); return false;">Повторно отправить письмо с подтверждением</a>
+                }
+            }
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt>Роли пользователя</dt>
+        <dd>
+            @{ var categoryID = Model.Roles.Where(m => m.isChecked == true).Select(c => new { c.ParentId }).Distinct().ToList();
+
+                List<Guid> ids = new List<Guid>();
+                foreach (var catID in categoryID)
+                {
+                    ids.Add((Guid)catID.ParentId);
+                }
+
+                if (ids.Count > 0)
+                {
+                    var category = Model.Roles.Where(m => ids.Contains(m.Id)).Select(c => new { c.Id, c.Text }).Distinct();
+                    <ul>
+                    @foreach (var cat in category)
+                    {
+                        <li>
+                            <span class="font-weight-bold font-italic">@cat.Text</span>
+
+                            @{var roles = Model.Roles.Where(m => m.ParentId == cat.Id && m.isChecked == true).OrderBy(o => o.Text); }
+                            <ul>
+                                @foreach (var role in roles)
+                                {
+                                    <li>@role.Text</li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                    </ul>
+                }
+                else { <p class="font-italic">Роли не назначены</p> }
+            }
+        </dd>
+    </dl>
+</div>

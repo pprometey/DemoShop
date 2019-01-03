@@ -1,0 +1,14 @@
+﻿@model ErrorViewModel
+@{
+    ViewData["Title"] = "Ошиибка";
+}
+
+<h2 class="text-danger">@ViewData["Title"]</h2>
+<p class="text-danger">Произошла ошибка. Для исправления ошибки свяжитесь с разработчиком сайта - <a asp-controller="Home" asp-action="Contact" class="alert-link">Контакты</a>.</p>
+
+@if (Model.ShowRequestId)
+{
+    <p>
+        <strong>Request ID:</strong> <code>@Model.RequestId</code>
+    </p>
+}

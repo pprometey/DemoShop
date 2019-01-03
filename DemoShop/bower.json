@@ -1,0 +1,21 @@
+{
+  "name": "asp.net",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "v4.0.0-alpha.6",
+    "jquery": "3.2.1",
+    "jquery-validation": "1.17.0",
+    "jquery-validation-unobtrusive": "3.2.6",
+    "fastclick": "v1.0.6",
+    "jquery-slimscroll": "v1.3.8",
+    "jquery.nicescroll": "v3.6.8-fix",
+    "jquery.scrollTo": "2.1.2",
+    "jszip": "3.1.4",
+    "pdfmake": "0.1.33",
+    "syncfusion-javascript": "15.4.17"
+  },
+  "resolutions": {
+    "jquery": ">= 1.9.0",
+    "bootstrap": "v4.0.0-alpha.6"
+  }
+}

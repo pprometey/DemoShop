@@ -1,0 +1,29 @@
+﻿@model EditViewModel
+<div class="card-body card-block">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductsCategoryID)
+        </dt>
+        <dd>
+            @Model.ProductsCategories.Where(m => m.ID == @Model.ProductsCategoryID).FirstOrDefault().Name
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UnitID)
+        </dt>
+        <dd>
+            @Model.Units.Where(m => m.ID == @Model.UnitID).FirstOrDefault().ShortName
+        </dd>
+    </dl>
+</div>

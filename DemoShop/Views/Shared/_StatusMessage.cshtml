@@ -1,0 +1,10 @@
+﻿@model AlertMessage
+
+@if (Model != null)
+{
+    var statusMessageClass = Model.Status == AlertStatus.error ? "danger" : Model.Status == AlertStatus.warning ? "warning" : Model.Status == AlertStatus.info ? "info" : Model.Status == AlertStatus.success ? "success" : "info";
+     <div class="alert alert-@statusMessageClass alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        @Model.Message
+    </div>
+}

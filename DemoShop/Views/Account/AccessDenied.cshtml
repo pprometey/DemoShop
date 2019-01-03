@@ -1,0 +1,10 @@
+﻿@{
+    Layout = "/Views/Shared/_LayoutAccount.cshtml";
+    ViewData["Title"] = "Доступ запрещен";
+}
+<div class="p-1 text-center">
+    <h4 class="text-danger">@ViewData["Title"]!</h4>
+    <p class="text-danger">У вас недостаточно прав для выполнения этой операции.</p>
+
+    <button type="button" onclick="history.back();" class="btn btn-secondary waves-effect waves-light">Вернуться</button>
+</div>

@@ -1,0 +1,141 @@
+﻿@{
+    Layout = "/Views/Shared/_Layout.cshtml";
+}
+
+@section BeforeCss {
+    @RenderSection("BeforeCss", required: false)
+}
+
+@section AfterCss {
+    @RenderSection("AfterCss", required: false)
+}
+
+<body class="fixed-left widescreen">
+    <!-- Loader -->
+    <!--<div id="preloader"><div id="status"><div class="spinner"></div></div></div>-->
+    <!-- Begin page -->
+    <div id="wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+
+        <div class="left side-menu">
+            <button type="button" class="button-menu-mobile button-menu-mobile-topbar open-left waves-effect">
+                <i class="ion-close"></i>
+            </button>
+
+            <!-- LOGO -->
+            <div class="topbar-left">
+                <div class="text-center">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="logo"><img src="~/images/logo.png" height="42" /></a>
+                </div>
+            </div>
+
+            <!-- NavBar -->
+            <div class="sidebar-inner slimscrollleft">
+                <div id="sidebar-menu">
+                    @await Component.InvokeAsync("NavigationBar")
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- Left Sidebar End -->
+
+        <!-- Start right Content here -->
+        <div class="content-page">
+            <!-- Start content -->
+            <div class="content">
+                <!-- Top Bar Start -->
+                <div class="topbar">
+                    <nav class="navbar-custom">
+                        <!-- Top Right menu-->
+
+                        <ul class="list-inline float-right mb-0">
+
+                            <li class="list-inline-item dropdown notification-list">
+                                <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user text-muted" data-toggle="dropdown" href="#" role="button"
+                                   aria-haspopup="false" aria-expanded="false">
+                                    <i class="fa fa-info fa-fw"></i> <i class="fa fa-caret-down"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right profile-dropdown">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="About"><i class="fa fa-info-circle fa-fw  text-muted "></i> <span>О сайте</span></a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Home" asp-action="Contact"><i class="fa fa-address-book-o fa-fw  text-muted"></i> <span>Контакты</span></a>
+                                    <a class="dropdown-item" href="https://support.iit.kz" target="_blank"><i class="fa fa-support fa-fw  text-muted"></i>  <span>Помощь</span></a>
+                                </div>
+                            </li>
+                            <li class="list-inline-item dropdown notification-list">
+                                <a class="nav-link dropdown-toggle arrow-none waves-effect nav-user text-muted" data-toggle="dropdown" href="#" role="button"
+                                   aria-haspopup="false" aria-expanded="false">
+                                    <i class="ion-android-contact"></i> <span>@await Html.PartialAsync("_LoginPartial") </span> <i class="fa fa-caret-down"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
+                                    <a class="dropdown-item" asp-area="" asp-controller="Profile" asp-action="Index" title="Профиль пользователя"><i class="mdi mdi-account-circle m-r-5 text-muted"></i> <span>Профиль</span></a>
+                                    <a class="dropdown-item" asp-area="" asp-controller="Profile" asp-action="ChangePassword"><i class="mdi mdi-lock-open-outline m-r-5 text-muted"></i> <span>Сменить пароль</span></a>
+                                    <a class="dropdown-item" href="javascript:{}" onclick="document.getElementById('logoutForm').submit(); return false;"><i class="mdi mdi-logout m-r-5 text-muted"></i> <span> Выход</span> </a>
+                                    <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="hide"></form>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <!-- Top Left menu-->
+
+                        <ul class="list-inline menu-left mb-0">
+                            <li class="list-inline-item">
+                                <button type="button" class="button-menu-mobile open-left waves-effect">
+                                    <i class="ion-navicon"></i>
+                                </button>
+                            </li>
+                            <li class="hide-phone list-inline-item app-search">
+                                <h3 class="page-title">@ViewData["Title"]</h3>
+                            </li>
+                        </ul>
+
+                        <div class="clearfix"></div>
+                    </nav>
+                </div>
+                <!-- Top Bar End -->
+
+                <div class="page-content-wrapper ">
+
+                    <div class="container">
+
+                    @RenderBody()
+                    </div><!-- container -->
+                </div> <!-- Page content Wrapper -->
+            </div> <!-- content -->
+
+            @await Html.PartialAsync("_FooterPartial")
+        </div><!-- content page -->
+    </div>
+    <!-- END wrapper -->
+
+    @await Html.PartialAsync("_ScriptPartial")
+
+    <environment include="Development">
+        <script src="~/js/modernizr.min.js"></script>
+        <script src="~/js/detect.js"></script>
+        <script src="~/lib/fastclick/lib/fastclick.js"></script>
+        <script src="~/lib/jquery-slimscroll/jquery.slimscroll.js"></script>
+        <script src="~/lib/blockui/jquery.blockUI.js"></script>
+        <script src="~/lib/jquery.nicescroll/jquery.nicescroll.js"></script>
+        <script src="~/lib/jquery.scrollTo/jquery.scrollTo.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/modernizr.min.js"></script>
+        <script src="~/js/detect.min.js"></script>
+        <script src="~/lib/fastclick/lib/fastclick.min.js"></script>
+        <script src="~/lib/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="~/lib/blockui/jquery.blockUI.min.js"></script>
+        <script src="~/lib/jquery.nicescroll/jquery.nicescroll.min.js"></script>
+        <script src="~/lib/jquery.scrollTo/jquery.scrollTo.min.js"></script>
+   </environment>
+
+    @RenderSection("Scripts", required: false)
+
+    <environment include="Development">
+        <script src="~/js/app.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/app.min.js"></script>
+    </environment>
+
+    <ej-script-manager></ej-script-manager>
+</body>

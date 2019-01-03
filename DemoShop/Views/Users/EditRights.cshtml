@@ -1,0 +1,39 @@
+﻿@model EditRightsViewModel
+@{
+    ViewData["Title"] = "Изменение ролей пользователя";
+}
+@section BeforeCss {
+    @{ await Html.RenderPartialAsync("_ScriptSyncfusionCss"); }
+}
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">Изменение ролей для @Model.FullName</div>
+            <form id="userForm" asp-action="EditRights">
+                <div class="card-body card-block">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="FullName" />
+                    @{await Html.RenderPartialAsync("_EditRights", Model);}
+                </div>
+                <div class="card-footer">
+                    <button id="submit" type="submit" class="btn btn-primary">Сохранить</button>
+                    <a class="btn btn-secondary" asp-action="Index">Отмена</a>
+                </div>
+            </form>
+       </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_ScriptSyncfusionJs"); }
+
+    <environment include="Development">
+        <script src="~/js/userroles.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/userroles.min.js"></script>
+    </environment>
+}

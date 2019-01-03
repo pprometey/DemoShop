@@ -1,0 +1,158 @@
+﻿// Configure bundling and minification for the project.
+// More info at https://go.microsoft.com/fwlink/?LinkId=808241
+[
+  {
+    "outputFileName": "wwwroot/css/style.min.css",
+    "inputFiles": [
+      "wwwroot/css/style.css"
+    ],
+    "minify": {
+      "enabled": true,
+      "commentMode": "hacks"
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/css/icons.min.css",
+    "inputFiles": [
+      "wwwroot/css/icons.css"
+    ],
+    "minify": {
+      "enabled": true,
+      "commentMode": "hacks"
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/waves.min.js",
+    "inputFiles": [
+      "wwwroot/js/waves.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": false
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/detect.min.js",
+    "inputFiles": [
+      "wwwroot/js/detect.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": false
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/lib/fastclick/lib/fastclick.min.js",
+    "inputFiles": [
+      "wwwroot/lib/fastclick/lib/fastclick.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": false
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/lib/blockui/jquery.blockUI.min.js",
+    "inputFiles": [
+      "wwwroot/lib/blockui/jquery.blockUI.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": false
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/app.min.js",
+    "inputFiles": [
+      "wwwroot/js/app.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": false
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/account.min.js",
+    "inputFiles": [
+      "wwwroot/js/account.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/ej/ej.culture.ru-RU.min.js",
+    "inputFiles": [
+      "wwwroot/js/ej/ej.culture.ru-RU.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/ej/ej.localetexts.ru-RU.min.js",
+    "inputFiles": [
+      "wwwroot/js/ej/ej.localetexts.ru-RU.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/userroles.min.js",
+    "inputFiles": [
+      "wwwroot/js/userroles.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": false
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/products.min.js",
+    "inputFiles": [
+      "wwwroot/js/products.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": false
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/purchases.min.js",
+    "inputFiles": [
+      "wwwroot/js/purchases.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": false
+    },
+    "sourceMap": false
+  },
+  {
+    "outputFileName": "wwwroot/js/sales.min.js",
+    "inputFiles": [
+      "wwwroot/js/sales.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": false
+    },
+    "sourceMap": false
+  }
+]

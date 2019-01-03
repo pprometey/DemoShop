@@ -1,0 +1,47 @@
+﻿@using Syncfusion.JavaScript.Models;
+@model IndexViewModel
+@{
+    ViewData["Title"] = "Список продаж";
+}
+@section BeforeCss {
+    @{ await Html.RenderPartialAsync("_ScriptSyncfusionCss"); }
+}
+
+@Html.Partial("_StatusMessage", Model.StatusMessage)
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <a asp-action="Create" class="btn btn-success"><i class="fa fa-plus fa-fw"></i> Добавить</a>
+            </div>
+            <div class="card-body card-block">
+                <ej-grid id="ProductsGrid" allow-selection="true" allow-sorting="true" allow-paging="true" allow-filtering="true"
+                         is-responsive="true" allow-reordering="true" enable-row-hover="true" locale="ru-RU" allow-grouping="true"
+                         group-settings ="@(new GroupSettings { ShowGroupedColumn=false, GroupedColumns= new List<string>() { "SalesDate" } })" >
+                    <e-datamanager url="GetData" adaptor="UrlAdaptor"></e-datamanager>
+                    <e-toolbar-settings show-toolbar="true" toolbar-items=@(new List<string>() { "printGrid" }) />
+                    <e-page-settings enable-query-string="true" page-size="25" page-size-list=@(new List<int>() { 15,25,50,100 }) />
+                    <e-columns>
+                        <e-column field="ID" is-primary-key="true" header-text="Код" visible="false"></e-column>
+                        <e-column field="SalesDate" header-text="Дата" format="{0:dd/MM/yyyy}" text-align=Right ></e-column>
+                        <e-column field="Product.Name" header-text="Товар"></e-column>
+                        <e-column field="Product.Unit.ShortName" header-text="Ед.изм"></e-column>
+                        <e-column field="Count" header-text="Количество"></e-column>
+                        <e-column field="Price" header-text="Цена" format="{0:N3}" text-align=Right></e-column>
+                        <e-column header-text="Действия" allow-resizing="false" width="235" template="#actionColumn"></e-column>
+                    </e-columns>
+                </ej-grid>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{ await Html.RenderPartialAsync("_ScriptSyncfusionJs"); }
+
+    <script id="actionColumn" type="text/x-jsrender">
+        <a class='btn btn-sm btn-info b-t' href='/Sales/Details?id={{:ID}}' title='Подробнее'><i class='fa fa-eye fa-fw'></i> </a>
+        <a class='btn btn-sm btn-primary b-t' href='/Sales/Edit?id={{:ID}}' title='Редактировать'><i class='fa fa-edit fa-fw'></i> </a>
+        <a class='btn btn-sm btn-danger b-t' href='/Sales/Delete?id={{:ID}}' title='Удалить'><i class='fa fa-remove fa-fw'></i> </a>
+    </script>
+}

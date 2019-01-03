@@ -1,0 +1,17 @@
+﻿@model EditViewModel
+@{
+    ViewData["Title"] = "Удаление покупки";
+}
+<div class="row">
+    <div class="col-12 col-sm-10 col-md-10 col-lg-8">
+        <div class="card">
+            @{await Html.RenderPartialAsync("_DetailsPartial", Model);}
+            <div class="card-footer">
+                <form asp-action="Delete" asp-route-id="@Model.ID" method="post">
+                    <button type="submit" class="btn btn-danger" title="Удалить"><i class="fa fa-remove fa-fw"></i> Удалить</button>
+                    <a class="btn btn-secondary" asp-action="Index">Отмена</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

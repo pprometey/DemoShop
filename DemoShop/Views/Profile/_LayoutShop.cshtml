@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "/Views/Shared/_LayoutShop.cshtml";
+}
+<div class="row">
+    <div class="col-12">
+        @await Html.PartialAsync("_ManageNav")
+    </div>
+    </div>
+<div class="row">
+    <div class="col-12 m-t-20">
+        @RenderBody()
+    </div>
+</div>
+
+@section Scripts {
+    @RenderSection("Scripts", required: false)
+}

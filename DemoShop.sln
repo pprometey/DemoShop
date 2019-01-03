@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2035
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoShop.UI", "DemoShop\DemoShop.UI.csproj", "{EFEF585B-56EC-432A-AF04-BFF93AFD9045}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DemoShop.Core", "DemoShop.Core\DemoShop.Core.csproj", "{0444E162-43D5-4530-87D2-2E19F9FEDF7B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{ABEC5EA4-2601-4750-94AB-65962459DC6B}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFEF585B-56EC-432A-AF04-BFF93AFD9045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFEF585B-56EC-432A-AF04-BFF93AFD9045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFEF585B-56EC-432A-AF04-BFF93AFD9045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFEF585B-56EC-432A-AF04-BFF93AFD9045}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0444E162-43D5-4530-87D2-2E19F9FEDF7B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0444E162-43D5-4530-87D2-2E19F9FEDF7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0444E162-43D5-4530-87D2-2E19F9FEDF7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0444E162-43D5-4530-87D2-2E19F9FEDF7B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D1687B3-4D55-40A8-BB6C-A62B3F2FF51B}
+	EndGlobalSection
+EndGlobal

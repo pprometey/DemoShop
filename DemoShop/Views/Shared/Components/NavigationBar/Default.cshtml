@@ -1,0 +1,48 @@
+﻿<ul>
+    <li>
+        <a asp-area="" asp-controller="Home" asp-action="Index" class="waves-effect">
+            <i class="mdi mdi-view-dashboard"></i>
+            <span> Рабочий стол</span>
+        </a>
+    </li>
+
+    <li class="has_sub">
+        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-cube-outline"></i> <span> Товары </span> </a>
+        <ul class="list-unstyled">
+            <li><a asp-area="" asp-controller="Units" asp-action="Index" class="waves-effect" title="Справочник единиц измерений">Единицы измерения</a></li>
+            <li><a asp-area="" asp-controller="ProductsCategories" asp-action="Index" class="waves-effect" title="Справочник категорий товаров">Категории товаров</a></li>
+            <li><a asp-area="" asp-controller="Products" asp-action="Index" class="waves-effect" title="Справочник товаров">Товары</a></li>
+        </ul>
+    </li>
+
+    <li class="has_sub">
+        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-file-outline"></i><span> Покупки </span></a>
+        <ul class="list-unstyled">
+            <li><a asp-area="" asp-controller="Purchases" asp-action="Index" class="waves-effect" title="Накладная на приход товара">Поступление товара</a></li>
+        </ul>
+    </li>
+
+    <li class="has_sub">
+        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-content-paste"></i><span> Продажи </span></a>
+        <ul class="list-unstyled">
+            <li><a asp-area="" asp-controller="Sales" asp-action="Index" class="waves-effect" title="Накладная на реализацию товаров">Реализация товара</a></li>
+        </ul>
+    </li>
+
+    <li class="has_sub">
+        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-settings"></i><span> Администрирование</span></a>
+        <ul class="list-unstyled">
+            <li><a asp-area="" asp-controller="Users" asp-action="Index"><i class="fa fa-users fa-fw"></i> Пользователи</a></li>
+            <li><a asp-area="" asp-controller="Roles" asp-action="Index"><i class="fa fa-user-secret fa-fw"></i><span> Роли</span></a></li>
+       </ul>
+    </li>
+
+    <li class="has_sub">
+        <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-account-settings-variant"></i><span> Настройки</span></a>
+        <ul class="list-unstyled">
+            <li><a asp-area="" asp-controller="Profile" asp-action="Index" class="waves-effect"><i class="mdi mdi-account-circle"></i><span> Профиль</span></a></li>
+            <li><a asp-area="" asp-controller="Profile" asp-action="ChangePassword" class="waves-effect"><i class="mdi mdi-lock-open-outline"></i> <span> Сменить пароль</span></a></li>
+           <li> <a class="dropdown-item" href="javascript:{}" onclick="document.getElementById('logoutForm').submit(); return false;"><i class="mdi mdi-logout"></i> <span> Выход</span></a></li>
+        </ul>
+    </li>
+</ul>

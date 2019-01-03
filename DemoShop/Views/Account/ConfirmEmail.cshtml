@@ -1,0 +1,8 @@
+﻿@{
+    Layout = "/Views/Shared/_LayoutAccount.cshtml";
+    ViewData["Title"] = "Электронный адрес подтвержден";
+}
+<div class="p-1 text-center">
+    <h4 class="text-success">@ViewData["Title"]!</h4>
+    <p>Спасибо за подтверждение вашего электронного адреса. Пожалуйста, <a asp-controller="Account" asp-action="Login">нажмите на эту ссылку для входа</a>.</p>
+</div>

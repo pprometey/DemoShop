@@ -1,0 +1,59 @@
+﻿@model CreateViewModel
+@{
+    ViewData["Title"] = "Создание товара";
+}
+@section BeforeCss {
+    @{ await Html.RenderPartialAsync("_ScriptSyncfusionCss"); }
+}
+
+<div class="row">
+    <div class="col-12 col-sm-10 col-md-10 col-lg-8">
+        <div class="card">
+            <form asp-action="Create" method="post">
+                <div class="card-body card-block">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" autofocus />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="ProductsCategoryID" class="control-label"></label>
+                        <input type="hidden" asp-for="ProductsCategoryID" />
+                        <ej-combo-box id="ProductsCategories" datasource="(IEnumerable<ProductProductsCategoryViewModel>)Model.ProductsCategories"
+                                      placeholder="Выберите категорию" select="productsCategories_onselect">
+                            <e-combo-box-fields text="Name" value="ID" />
+                        </ej-combo-box>
+                        <span asp-validation-for="ProductsCategoryID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="UnitID" class="control-label"></label>
+                        <input type="hidden" asp-for="UnitID" />
+                        <ej-combo-box id="Units" datasource="(IEnumerable<ProductUnitViewModel>)Model.Units"
+                                      placeholder="Выберите единицу измерения" select="units_onselect">
+                            <e-combo-box-fields text="ShortName" value="ID" />
+                        </ej-combo-box>
+                        <span asp-validation-for="UnitID" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="card-footer">
+                    <button type="submit" class="btn btn-primary">Добавить</button>
+                    <a class="btn btn-secondary" asp-action="Index">Отмена</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    @{await Html.RenderPartialAsync("_ScriptSyncfusionJs"); }
+}
+
+    <environment include="Development">
+        <script src="~/js/products.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/products.min.js"></script>
+    </environment>
+

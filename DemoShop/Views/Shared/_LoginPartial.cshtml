@@ -1,0 +1,10 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using DemoShop.Core.Domain
+
+@inject SignInManager<ShopUser> SignInManager
+@inject UserManager<ShopUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    @UserManager.GetUserAsync(User).Result.FullName
+}

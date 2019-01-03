@@ -1,0 +1,50 @@
+﻿@model IndexViewModel
+@{
+    ViewData["Title"] = "Профиль пользователя";
+    ViewData.AddActivePage(ManageNavPages.Index);
+}
+
+@Html.Partial("_StatusMessage", Model.StatusMessage)
+<div class="row">
+    <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FullName"></label>
+                <input asp-for="FullName" class="form-control" autofocus />
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserName"></label>
+                <input asp-for="UserName" class="form-control" disabled />
+            </div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                @if (Model.EmailConfirmed)
+                {
+                    <div class="input-group">
+
+                        <input asp-for="Email" class="form-control" aria-describedby="profile-email-addon" />
+                        <span class="input-group-addon" id="profile-email-addon"><i class="ion-checkmark text-success"></i> </span>
+                    </div>
+                }
+                else
+                {
+                    <input asp-for="Email" class="form-control" />
+                    <div class="form-text text-muted">Этот адрес не подтвержден. <button asp-action="SendVerificationEmail" class="btn btn-link">Повторно отправить письмо с подтверждением</button></div>
+                }
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PhoneNumber"></label>
+                <input asp-for="PhoneNumber" class="form-control" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary waves-effect waves-light">Сохранить</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+}

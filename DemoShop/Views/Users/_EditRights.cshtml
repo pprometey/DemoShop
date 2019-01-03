@@ -1,0 +1,17 @@
+﻿@model SmallUserViewModel
+
+<div class="form-row">
+    <div class="form-group">
+        <div class="card">
+            <div class="card-header">
+                <b>Роли пользователя</b>
+            </div>
+            <div class="card-body card-block">
+                <ej-tree-view id="rolestreeview" show-checkbox="true" full-row-select="true" enable-persistence="false">
+                    <e-tree-view-fields datasource="@Model.Roles" id="Id" parent-id="ParentId" text="Text" has-child="hasChild" expanded="expanded">
+                    </e-tree-view-fields>
+                </ej-tree-view>
+            </div>
+        </div>
+    </div>
+</div>
